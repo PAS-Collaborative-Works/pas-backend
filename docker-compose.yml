@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15.1-alpine
+    container_name: postgres_db_be
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: pas-db-dev
+      POSTGRES_USER: pas-db-dev
+      POSTGRES_PASSWORD: pas-db-dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+volumes:
+  pgdata:
